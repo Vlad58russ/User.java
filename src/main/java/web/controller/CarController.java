@@ -10,13 +10,18 @@ import web.service.CarService;
 @Controller
 public class CarController {
     @Autowired
+    public CarController(CarService carService) {
+        this.carService = carService;
+    }
+
     private CarService carService;
 
     @GetMapping(value = "/cars")
-    public String printCarTable(Model model,
-                                @RequestParam(value = "count", defaultValue = "5") Integer count) {
-        model.addAttribute("carsList",
-                carService.getCountCars(carService.getCarsList(), count));
+    public String printCarTable(Model Car,
+                                @RequestParam(value = "count", defaultValue = "5", required = false)
+                                int count) {
+        Car.addAttribute("cars",
+                carService.printCarTable(count));
         return "cars";
     }
 }
