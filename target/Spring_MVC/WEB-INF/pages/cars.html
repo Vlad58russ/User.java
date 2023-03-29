@@ -3,11 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Hello Java</title>
 </head>
 <body>
 <h1>Car List</h1>
-<br/><br/>
 <div>
     <table th:border="1">
         <tr>
@@ -15,10 +14,10 @@
             <th>Number</th>
             <th>Year</th>
         </tr>
-        <tr th:each="car : ${carsList}">
-            <td th:utext="${car.getModel()}">...</td>
-            <td th:utext="${car.getNumber()}">...</td>
-            <td th:utext="${car.getYear()}">...</td>
+        <tr th:each="car : ${cars}">
+            <td th:utext="${car.model}">model</td>
+            <td th:utext="${car.number}">number</td>
+            <td th:utext="${car.year}">year</td>
         </tr>
     </table>
 </div>
